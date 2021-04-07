@@ -3,7 +3,8 @@ import React from "react";
 const ModelsContext = React.createContext(
     {
         models: [],
-        setModels: () => {
+        addModel: (model) => {
+            this.models.push(model)
         }
     }
 );

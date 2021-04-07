@@ -8,7 +8,7 @@ import ModelsContext from "./context/models-context";
 
 
 function App() {
-    const [models, setModels] = useState([{name: 'Post'}]);
+    const [models, setModels] = useState();
     const value = {models, setModels};
     return (
         <ModelsContext.Provider value={value}>
