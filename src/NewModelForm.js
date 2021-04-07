@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 
 import {useModels} from "./ModelsProvider";
 
-export default function NewModelForm() {
+export default function NewModelForm(props) {
+    const {test3} = props;
     const [model, setModel] = useState('');
-    const { addModel } = useModels();
+    const { models, addModel } = useModels();
 
     const submit = e => {
         e.preventDefault();
@@ -20,7 +21,9 @@ export default function NewModelForm() {
                 onChange={e=>setModel(e.target.value)}
                 required
             />
+
             <button>Add</button>
+            {test3}
         </form>
     )
 }

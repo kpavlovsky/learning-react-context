@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ModelProvider from "./ModelsProvider";
+import NewModelForm from "./NewModelForm";
 ReactDOM.render(
     <React.StrictMode>
         <ModelProvider>
-            <App/>
+            <App  test1='blabla' test2='tratata'  test3='test3'/>
         </ModelProvider>
     </React.StrictMode>,
     document.getElementById('root')
