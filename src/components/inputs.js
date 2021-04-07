@@ -22,17 +22,20 @@ function ModelsListOld(models, addModel) {
 
 function ModelsList(props) {
 
-    if (!props.models?.length) {return (<div/>);}
+    if (!props.models?.length) {
+        return (<div/>);
+    }
     const listItems = props.models.map((model) => <ModelItem name={model.name}></ModelItem>);
     return (<div>{listItems}</div>);
 }
 
 
 function AddModel(props) {
+    const {fn} = props;
     const {register, handleSubmit} = useForm();
     console.log(props);
     const onSubmit = data => {
-        props.addModel(data);
+        fn(data);
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -48,10 +51,15 @@ function InputSection(props) {
     return (<div>
         <h2>Input section</h2>
         <ModelsContext.Consumer>
-            {({models, addModel})=>(<ModelsList models={models}/>)}
+            {({models, fn}) => (<ModelsList models={models}/>)}
         </ModelsContext.Consumer>
         <ModelsContext.Consumer>
-            {({models, addModel})=>(<AddModel addModel={addModel}/>)}
+            {({models, fn}) => {
+                console.log('add_model');
+                console.log(models);
+                console.log(fn);
+                return (<AddModel fn={fn}/>)
+            }}
         </ModelsContext.Consumer>
     </div>);
 }

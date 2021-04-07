@@ -2,16 +2,20 @@ import './App.css';
 import InputSection from "./components/inputs";
 import OutputSection from "./components/outputs";
 import Header from "./components/header";
-import React, {useState} from 'react';
+import React from 'react';
 
 import ModelsContext from "./context/models-context";
 
 
 function App() {
-    const [models, setModels] = useState();
-    const value = {models, setModels};
+    const state = {
+        models: [],
+        fn: (model) => {
+            this.models.push(model)
+        }
+    }
     return (
-        <ModelsContext.Provider value={value}>
+        <ModelsContext.Provider value={state}>
             <div className="App">
                 <Header/>
                 <InputSection/>
