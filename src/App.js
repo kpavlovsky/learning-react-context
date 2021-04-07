@@ -1,27 +1,16 @@
 import './App.css';
-import InputSection from "./components/inputs";
-import OutputSection from "./components/outputs";
-import Header from "./components/header";
+
 import React from 'react';
-
-import ModelsContext from "./context/models-context";
-
+import NewModelForm from "./NewModelForm";
+import ModelList from "./ModelList";
 
 function App() {
-    const state = {
-        models: [],
-        fn: (model) => {
-            this.models.push(model)
-        }
-    }
     return (
-        <ModelsContext.Provider value={state}>
-            <div className="App">
-                <Header/>
-                <InputSection/>
-                <OutputSection/>
-            </div>
-        </ModelsContext.Provider>
+        <div className="container">
+            <h1>Django Models Generator</h1>
+            <NewModelForm/>
+            <ModelList/>
+        </div>
     );
 }
 
