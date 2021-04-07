@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import InputSection from "./components/inputs";
+import OutputSection from "./components/outputs";
+import Header from "./components/header";
+import React, {useState} from 'react';
+
+import ModelsContext from "./context/models-context";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [models, setModels] = useState([{name: 'Post'}]);
+    const value = {models, setModels};
+    return (
+        <ModelsContext.Provider value={value}>
+            <div className="App">
+                <Header/>
+                <InputSection/>
+                <OutputSection/>
+            </div>
+        </ModelsContext.Provider>
+    );
 }
 
 export default App;
